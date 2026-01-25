@@ -84,13 +84,18 @@ function tallyVotes() {
   let tally = ss.getSheetByName(tallySheetName);
   if (!tally) tally = ss.insertSheet(tallySheetName);
 
-  const values = resp.getRange(2, 3, resp.getLastRow() - 1, 1).getValues(); // Column C
+  const lastRow = resp.getLastRow();
   const counts = {};
-  values.forEach(function(r) {
-    const v = (r[0] || '').toString().trim();
-    if (!v) return;
-    counts[v] = (counts[v] || 0) + 1;
-  });
+  
+  // Only process if there are responses (more than just header row)
+  if (lastRow > 1) {
+    const values = resp.getRange(2, 3, lastRow - 1, 1).getValues(); // Column C
+    values.forEach(function(r) {
+      const v = (r[0] || '').toString().trim();
+      if (!v) return;
+      counts[v] = (counts[v] || 0) + 1;
+    });
+  }
 
   // Clear tally sheet and write results
   tally.clearContents();

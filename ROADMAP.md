@@ -9,7 +9,7 @@ Welcome — this is CurationsLA's public roadmap. It shows what we're building n
 - [Pondering](#pondering)
 - [Completed](#completed)
 - [Delayed / Pivot](#delayed--pivot)
-- [How to vote and submit](#how-to-vote-and-submit)
+- [Community participation](#community-participation)
 
 ## Status legend
 - **Drafting / In-Progress** — actively being worked on
